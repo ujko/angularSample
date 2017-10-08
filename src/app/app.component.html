@@ -3,16 +3,23 @@
 </div>
 <div class="row">
   <div class="col-md-6">
-    <ul *ngFor="let tl of taskList">
-      <li>
-        {{tl}}
-        <button class="btn btn-success btn-xs" (click)="addToDoneList(tl)">Zrobione</button>
-        <button class="btn btn-danger btn-xs" (click)="removeTask(tl)">Usuń</button>
-      </li>
-    </ul>
+    <ng-container *ngIf="todoList.length>0; else noTask">
+    <table>
+      <tr *ngFor="let tl of todoList">
+        <td>{{tl}}</td>
+        <td><button class="btn btn-success btn-xs" (click)="addToDoneList(tl)">Zrobione</button></td>
+        <td><button class="btn btn-danger btn-xs" (click)="removeTask(tl)">Usuń</button></td>
+      </tr>
+    </table>
+  </ng-container>
+  <ng-template #noTask>
+    <div>
+      Brak zadań
+    </div>
+  </ng-template>
   </div>
   <div class="col-md-6">
-    <ul *ngFor="let task of taskDone"`>
+    <ul *ngFor="let task of doneList">
       <li>{{task}}</li>
     </ul>
   </div>
