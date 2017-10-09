@@ -7,7 +7,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class AddTaskComponent implements OnInit {
 
-  newTask: string;
+  newTask = '';
 
   @Output()
   emitTask = new EventEmitter<string>();
@@ -17,7 +17,9 @@ export class AddTaskComponent implements OnInit {
   }
 
   taskListAdd() {
+    if (this.newTask !== '') {
     this.emitTask.emit(this.newTask);
     this.newTask = '';
+    }
   }
 }

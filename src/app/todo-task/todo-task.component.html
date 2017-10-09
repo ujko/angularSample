@@ -1,0 +1,18 @@
+<ng-container *ngIf="todoList.length>0; else noTask">
+  <table class="table table-striped">
+    <tr *ngFor="let tl of todoList">
+      <td>{{tl}}</td>
+      <td>
+        <button class="btn btn-success btn-xs" (click)="addToDoneList(tl)">Zrobione</button>
+      </td>
+      <td>
+        <button class="btn btn-danger btn-xs" (click)="removeTask(tl)">Usuń</button>
+      </td>
+    </tr>
+  </table>
+</ng-container>
+<ng-template #noTask>
+  <div>
+    Brak zadań
+  </div>
+</ng-template>

@@ -1,26 +1,19 @@
-<div class="row">
-  <app-add-task (emitTask)="add($event)"></app-add-task>
+<div class="jumbotron text-center">
+  <h1>Lista zadań by Ujo</h1>
 </div>
-<div class="row">
-  <div class="col-md-6">
-    <ng-container *ngIf="todoList.length>0; else noTask">
-    <table>
-      <tr *ngFor="let tl of todoList">
-        <td>{{tl}}</td>
-        <td><button class="btn btn-success btn-xs" (click)="addToDoneList(tl)">Zrobione</button></td>
-        <td><button class="btn btn-danger btn-xs" (click)="removeTask(tl)">Usuń</button></td>
-      </tr>
-    </table>
-  </ng-container>
-  <ng-template #noTask>
-    <div>
-      Brak zadań
-    </div>
-  </ng-template>
+<div class="container">
+  <div class="row margin-bottom">
+    <app-add-task (emitTask)="add($event)"></app-add-task>
   </div>
-  <div class="col-md-6">
-    <ul *ngFor="let task of doneList">
-      <li>{{task}}</li>
-    </ul>
+  <div class="row">
+    <div class="col-md-6">
+      <app-todo-task [todoList]="todoList" (emitDone)="addToDoneList($event)" (emitRemove)="removeTask($event)"></app-todo-task>
+    </div>
+    <div class="col-md-6">
+      <p>Wykonano {{doneList.length}} zadań</p>
+      <ul *ngFor="let task of doneList">
+        <li>{{task}}</li>
+      </ul>
+    </div>
   </div>
 </div>

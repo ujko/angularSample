@@ -1,4 +1,6 @@
-<div class="form-group">
-  <input type="text" class="form-control" [(ngModel)]="newTask" />
-  <button class="btn btn-primary btn-lg" (click)="taskListAdd()">Dodaj task</button>
+<div class="input-group">
+  <input type="text" class="form-control" [(ngModel)]="newTask" placeholder="Wpisz zadanie" />
+  <div class="input-group-btn">
+    <button class="btn btn-success" type="submit" (click)="taskListAdd()"><span class="glyphicon glyphicon-plus"></span> Dodaj zadanie </button>
+  </div>
 </div>
