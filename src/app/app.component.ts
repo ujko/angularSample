@@ -13,12 +13,12 @@ export class AppComponent {
   add(task: string) {
     this.todoList.push(task);
   }
-  removeTask(task) {
+  remove(task) {
     this.todoList = this.todoList.filter(e => e !== task);
   }
   addToDoneList(task) {
     this.doneList.push(task);
-    this.removeTask(task);
+    this.remove(task);
     console.log('Nowy task: ' + task);
     console.log('Lista zrobionych: ' + this.doneList);
   }

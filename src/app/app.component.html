@@ -7,7 +7,7 @@
   </div>
   <div class="row">
     <div class="col-md-6">
-      <app-todo-task [todoList]="todoList" (emitDone)="addToDoneList($event)" (emitRemove)="removeTask($event)"></app-todo-task>
+      <app-todo-task [todoList]="todoList" (emitDone)="addToDoneList($event)" (emitRemove)="remove($event)" ></app-todo-task>
     </div>
     <div class="col-md-6">
       <p>Wykonano {{doneList.length}} zadań</p>
