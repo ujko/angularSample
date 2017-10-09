@@ -10,10 +10,7 @@
       <app-todo-task [todoList]="todoList" (emitDone)="addToDoneList($event)" (emitRemove)="remove($event)" ></app-todo-task>
     </div>
     <div class="col-md-6">
-      <p>Wykonano {{doneList.length}} zadań</p>
-      <ul *ngFor="let task of doneList">
-        <li>{{task}}</li>
-      </ul>
+     <app-done-task [doneList]="doneList" ></app-done-task>
     </div>
   </div>
 </div>

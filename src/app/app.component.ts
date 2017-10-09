@@ -19,7 +19,5 @@ export class AppComponent {
   addToDoneList(task) {
     this.doneList.push(task);
     this.remove(task);
-    console.log('Nowy task: ' + task);
-    console.log('Lista zrobionych: ' + this.doneList);
   }
 }
